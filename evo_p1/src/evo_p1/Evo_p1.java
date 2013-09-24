@@ -17,8 +17,8 @@ import java.util.Random;
 public class Evo_p1 {
 
     public static int evals;
-    public static int population = 1000;
-    static String filename = "TSP3.txt";
+    public static int population = 10;
+    static String filename = "TSP1.txt";
 //    static Comparator<Node> cNode = new Comparator<Node>() {
 //
 //        @Override
@@ -206,7 +206,7 @@ public class Evo_p1 {
             //random pick
             double grandtotalcost = 0;
             for (int i = 0; i < currentlists.size(); i++) {
-                grandtotalcost += 1 / currentlists.get(i).totalcost;
+                grandtotalcost +=  1/currentlists.get(i).totalcost;
             }
             for (int i = (int) (currentlists.size() / 2); i < currentlists.size(); i++) {
                 NodeList p1 = currentlists.get(0);
@@ -214,7 +214,7 @@ public class Evo_p1 {
                 double p = Math.random();
                 double cumulativeProbability = 0.0;
                 for (NodeList item : currentlists) {
-                    cumulativeProbability += 1 / item.totalcost / grandtotalcost;
+                    cumulativeProbability +=  1/item.totalcost / grandtotalcost;
                     if (p <= cumulativeProbability) {
                         p1 = item;
                         break;
@@ -223,7 +223,7 @@ public class Evo_p1 {
                 p = Math.random();
                 cumulativeProbability = 0.0;
                 for (NodeList item : currentlists) {
-                    cumulativeProbability += 1 / item.totalcost / grandtotalcost;
+                    cumulativeProbability +=  1/item.totalcost / grandtotalcost;
                     if (p <= cumulativeProbability) {
                         p2 = item;
                         break;
@@ -256,7 +256,7 @@ public class Evo_p1 {
         while (evals - oldevals < 1000) {
             double grandtotalcost = 0;
             for (int i = 0; i < currentlists.size(); i++) {
-                grandtotalcost += 1 / currentlists.get(i).totalcost;
+                grandtotalcost +=  1/currentlists.get(i).totalcost;
             }
             for (int i = (int) (currentlists.size() / 2); i < currentlists.size(); i++) {
                 NodeList p1 = currentlists.get(0);
@@ -264,7 +264,7 @@ public class Evo_p1 {
                 double p = Math.random();
                 double cumulativeProbability = 0.0;
                 for (NodeList item : currentlists) {
-                    cumulativeProbability += 1 / item.totalcost / grandtotalcost;
+                    cumulativeProbability +=  1/item.totalcost / grandtotalcost;
                     if (p <= cumulativeProbability) {
                         p1 = item;
                         break;
@@ -273,7 +273,7 @@ public class Evo_p1 {
                 p = Math.random();
                 cumulativeProbability = 0.0;
                 for (NodeList item : currentlists) {
-                    cumulativeProbability += 1 / item.totalcost / grandtotalcost;
+                    cumulativeProbability +=  1/item.totalcost / grandtotalcost;
                     if (p <= cumulativeProbability) {
                         p2 = item;
                         break;
@@ -285,7 +285,7 @@ public class Evo_p1 {
             currentlists = newlists;
             newcost = currentlists.get(0).totalcost;
         }
-        out.print(cost);
+        out.print(newcost);
         ArrayList<Node> sortedlist = (ArrayList<Node>) currentlists.get(0).list.clone();
         for (int i = 0; i < sortedlist.size(); i++) {
             result[i][0] = sortedlist.get(i).x;
@@ -296,10 +296,10 @@ public class Evo_p1 {
     }
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             Evo_p1 instance = new Evo_p1();
             instance.init();
-            File file = new File("GAp" + population + "i" + i + ".txt");
+            File file = new File("bestGAp" + population + "i" + i + ".txt");
             PrintWriter out = new PrintWriter(new FileWriter(file));
             while (evals < 1000000) {
                 instance.run2(out);
