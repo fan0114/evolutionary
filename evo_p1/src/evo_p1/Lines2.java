@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package evo_p1;
 
 /**
@@ -40,10 +36,6 @@ class Surface extends JPanel {
         for (int i = 1; i < linenums.length; i++) {
             g2d.drawLine((int) (linenums[i - 1][0] * scale), (int) (linenums[i - 1][1] * scale), (int) (linenums[i][0] * scale), (int) (linenums[i][1] * scale));
         }
-
-
-        //removeAll();
-        //updateUI();
     }
 
     @Override
@@ -129,19 +121,6 @@ public class Lines2 extends JFrame {
                     lines = new Lines2();
                     lines.setVisible(true);
 
-
-//                    int count = 0;
-////                    while (count < 0) {
-//                    lines.removeAll();
-//                    count++;
-//                    lines.updateLines();
-//                    panel = new Surface(linenums);
-//                    lines.add(panel);
-//                    lines.invalidate();
-//                    lines.validate();
-//                    lines.repaint();
-////                        Thread.sleep(1000);
-////                    }
                 } catch (FileNotFoundException ex) {
                     Logger.getLogger(Lines2.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {

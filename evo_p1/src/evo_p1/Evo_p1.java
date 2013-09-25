@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package evo_p1;
 
 import java.io.*;
@@ -19,20 +15,7 @@ public class Evo_p1 {
     public static int evals;
     public static int population = 10;
     static String filename = "TSP1.txt";
-//    static Comparator<Node> cNode = new Comparator<Node>() {
-//
-//        @Override
-//        public int compare(Node t1, Node t2) {
-//            double tmp = t1.pos() - t2.pos();
-//            if (tmp < 0) {
-//                return -1;
-//            } else if (tmp == 0) {
-//                return 0;
-//            } else {
-//                return 1;
-//            }
-//        }
-//    };
+
     static Comparator<NodeList> cList = new Comparator<NodeList>() {
 
         @Override
@@ -94,26 +77,15 @@ public class Evo_p1 {
             decision = generator.nextInt(2);
             newNode = new Node(currentNode[decision]);
             boolean exist = false;
-//            while (exist) {
-//                exist = false;
+
             for (int i = 0; i < child.size(); i++) {
                 if (child.get(i).no == newNode.no) {
                     //System.out.println("conflict: " + newNode.no);
                     exist = true;
-//                    child.add(newNode);
-//                    child.remove(i);
+
                 }
             }
-//                if (exist) {
-//                    if (decision == 0) {
-//                        newNode = l1.getNext(newNode);
-//                        System.out.println("l1 new: "+newNode.no);
-//                    } else {
-//                        newNode = l2.getNext(newNode);
-//                        System.out.println("l2 new: "+newNode.no);
-//                    }
-//                }
-//            }
+
             if (!exist) {
                 //System.out.println("add");
                 child.add(newNode);
@@ -133,13 +105,7 @@ public class Evo_p1 {
             child.set(n1, tmp2);
             child.set(n2, tmp1);
         }
-
-//        //random change
-//        for (int i = 0; i < child.size()/20; i++) {
-//            int n1 = generator.nextInt(child.size());
-//            child.get(n1).rank+=(Math.random()-0.5)/5;
-//        }
-//        
+   
         NodeList ret = new NodeList(child);
         return ret;
     }

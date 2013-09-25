@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package evo_p1;
 
 import java.io.*;
@@ -81,33 +77,13 @@ public class Evo_p1old {
     static NodeList offspring(NodeList l1) {
         //crossover
         ArrayList<Node> child = new ArrayList<Node>();
-//        ArrayList<Node> l1sort = (ArrayList<Node>) l1.list.clone();
-//        ArrayList<Node> l2sort = (ArrayList<Node>) l2.list.clone();
-//        Collections.sort(l1sort, cNode);
-//        Collections.sort(l2sort, cNode);
         Random generator = new Random();
         for (int i = 0; i < l1.size(); i++) {
             Node node = new Node(l1.get(i).x, l1.get(i).y);
             node.rank = l1.get(i).rank;
             child.add(node);
         }
-//        Node tmp = new Node(l1sort.get(0).x,l1sort.get(0).y);
-//        tmp.rank=l1sort.get(0).rank;
-//        child.add(tmp);
-//        int index1=0;
-//        int index2=0;
-//        int decision=0;
-//        while(){
-//            decision = generator.nextInt(2);
-//            if(decision==0){
-//                index1++;
-//                tmp = new Node(l1sort.get(index1).x,l1sort.get(index1).y);
-//                tmp.rank=l1sort.get(index1).rank;
-//            }else{
-//            
-//            }
-//            tmp = new Node()
-//        } 
+
         //mutation: swap
 
         for (int i = 0; i < generator.nextInt(2); i++) {
@@ -119,12 +95,7 @@ public class Evo_p1old {
             child.get(n2).rank = tmp;
         }
 
-//        //random change
-//        for (int i = 0; i < child.size()/20; i++) {
-//            int n1 = generator.nextInt(child.size());
-//            child.get(n1).rank+=(Math.random()-0.5)/5;
-//        }
-//        
+
         NodeList ret = new NodeList(child);
         return ret;
     }
@@ -167,13 +138,6 @@ public class Evo_p1old {
         cost = currentlists.get(0).totalcost;
         double newcost = cost;
         while (newcost >= cost) {
-            //16 25 34 12 34 56
-//            currentlists.set(6, offspring(currentlists.get(0), currentlists.get(5)));
-//            currentlists.set(7, offspring(currentlists.get(1), currentlists.get(4)));
-//            currentlists.set(8, offspring(currentlists.get(2), currentlists.get(3)));
-//            currentlists.set(9, offspring(currentlists.get(0), currentlists.get(1)));
-//            currentlists.set(10, offspring(currentlists.get(2), currentlists.get(3)));
-//            currentlists.set(11, offspring(currentlists.get(4), currentlists.get(5)));
             //random pick
             double grandtotalcost = 0;
             for (int i = 0; i < currentlists.size() / 2; i++) {

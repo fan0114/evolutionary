@@ -18,20 +18,7 @@ public class Evo_p1hc {
 
     static int evals;
     static String filename = "TSP3.txt";
-//    static Comparator<Node> cNode = new Comparator<Node>() {
-//
-//        @Override
-//        public int compare(Node t1, Node t2) {
-//            double tmp = t1.pos() - t2.pos();
-//            if (tmp < 0) {
-//                return -1;
-//            } else if (tmp == 0) {
-//                return 0;
-//            } else {
-//                return 1;
-//            }
-//        }
-//    };
+
     static Comparator<NodeList> cList = new Comparator<NodeList>() {
 
         @Override
